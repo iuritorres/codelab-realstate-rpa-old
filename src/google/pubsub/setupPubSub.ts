@@ -17,16 +17,10 @@ export async function setupPubSub() {
 
   await topic.createSubscription(env.GOOGLE_PUBSUB_SUBSCRIPTION, {
     ackDeadlineSeconds: 60,
-    pushConfig: {
-      pushEndpoint: env.GOOGLE_PUBSUB_PUSH_ENDPOINT,
-    },
     expirationPolicy: {
       ttl: null,
     },
   });
 
   console.log("✅ Successfully created Pub/Sub topic and subscription.");
-  console.log(
-    `🔗 Push endpoint is set to "${env.GOOGLE_PUBSUB_PUSH_ENDPOINT}".`
-  );
 }

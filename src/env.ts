@@ -10,7 +10,6 @@ const envSchema = z.object({
   GOOGLE_PROJECT_ID: z.string(),
   GOOGLE_PUBSUB_TOPIC: z.string(),
   GOOGLE_PUBSUB_SUBSCRIPTION: z.string(),
-  GOOGLE_PUBSUB_PUSH_ENDPOINT: z.string().url(),
 });
 
 export const env = envSchema.parse(process.env);

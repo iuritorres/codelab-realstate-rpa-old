@@ -1,4 +1,5 @@
 import { env } from "../../../env";
+import { TEST_LABEL_ID } from "../../constants/gmail";
 import { getGmailClient } from "../client";
 import { getNegotiationsLabel } from "./getNegotiationsLabel";
 import { saveLastHistoryId } from "./saveLastHistoryId";
@@ -11,7 +12,7 @@ export const subscribeToGmailPushNotifications = async () => {
     userId: "me",
     requestBody: {
       topicName: `projects/${env.GOOGLE_PROJECT_ID}/topics/${env.GOOGLE_PUBSUB_TOPIC}`,
-      labelIds: [negotiationsLabel.id!],
+      labelIds: [negotiationsLabel.id!, TEST_LABEL_ID],
       labelFilterAction: "include",
     },
   });

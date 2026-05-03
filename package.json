@@ -18,21 +18,23 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "tsx src/server.ts",
-    "gmail:unsubscribe": "tsx src/scripts/unsubscribe-gmail.ts"
+    "start": "functions-framework --target=handleNotification --source=src/index.ts",
+    "gmail:subscribe": "tsx src/scripts/subscribe-gmail.ts",
+    "gmail:unsubscribe": "tsx src/scripts/unsubscribe-gmail.ts",
+    "test:pdf": "tsx src/scripts/test-pdf.ts"
   },
   "dependencies": {
+    "@google-cloud/firestore": "^7.0.0",
+    "@google-cloud/functions-framework": "^3.0.0",
     "@google-cloud/local-auth": "^2.1.0",
     "@google-cloud/pubsub": "^5.0.0",
     "@notionhq/client": "^3.1.3",
     "dotenv": "^16.5.0",
-    "express": "^5.1.0",
     "googleapis": "^105.0.0",
     "pdfjs-dist": "^5.3.31",
     "zod": "^3.25.56"
   },
   "devDependencies": {
-    "@types/express": "^5.0.3",
     "@types/node": "^25.6.0",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3"
